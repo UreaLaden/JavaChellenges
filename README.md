@@ -209,3 +209,18 @@ binary search tree.
 `contains` - Accepts a value, and returns a boolean indicating whether or not the value is in
 the tree at least once.
 
+# Challenge Summary
+Find the Maximum Value in a Binary Tree
+
+## Challenge Description
+Write an instance method called find-maximum-value. Without utilizing any of the built-in
+methods available to your language, return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
+
+## Approach & Efficiency
+If Node is NULL return Integer.Min_Value declare current variable and set to input node's head.
+Declare max variables for the left and right, and set them to recursive functions passing in the
+left and right nodes respectively. Compare the current node with both variables returning the max
+
+## Solution
+
+![Find Max](assets/treeMax.jpg)

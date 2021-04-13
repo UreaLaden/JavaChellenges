@@ -67,4 +67,18 @@ public class BinarySearchTree<T extends Comparable<T>>{
     }
     return false;
   }
+
+  public int findMax(){
+    return findMax(root);
+  }
+  private int findMax(Node node){
+    if(node == null)return Integer.MIN_VALUE;
+
+    int left = findMax(node.left);
+    int right = findMax(node.right);
+
+    int initialMax = Math.max((int) node.value,left);
+
+    return Math.max(initialMax,right);
+  }
 }
