@@ -113,4 +113,19 @@ public class BinaryTreeTest {
         assertTrue(actual);
       }
 
+    @Test
+    public void testFindMax(){
+      BinarySearchTree<Integer> test = new BinarySearchTree<>();
+      test.add(3);
+      test.add(4);
+      test.add(8);
+      test.add(1);
+      test.add(12);
+      test.add(52);
+      test.add(7);
+      int expected = 52;
+      int actual = test.findMax();
+      assertEquals("Should return 52",expected,actual);
+      }
+
 }
