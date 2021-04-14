@@ -7,8 +7,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class BinaryTreeTest {
   @Test
@@ -128,4 +127,31 @@ public class BinaryTreeTest {
       assertEquals("Should return 52",expected,actual);
       }
 
+      @Test
+      public void testBreadthFirst(){
+        BinaryTree<Integer> test = new BinaryTree<>();
+        test.root = new Node<>(null,null,2);
+        test.root.left = new Node<>(null,null,7);
+        test.root.left.left = new Node<>(null,null,2);
+        test.root.left.right = new Node<>(null,null,6);
+        test.root.left.right.left = new Node<>(null,null,5);
+        test.root.left.right.right = new Node<>(null,null,11);
+        test.root.right = new Node<>(null,null,5);
+        test.root.right.right = new Node<>(null,null,9);
+        test.root.right.right.left = new Node<>(null,null,4);
+//        System.out.println(test.postOrder());
+        ArrayList<Object> expected = new ArrayList<>();
+        expected.add(2);
+        expected.add(7);
+        expected.add(5);
+        expected.add(2);
+        expected.add(6);
+        expected.add(9);
+        expected.add(5);
+        expected.add(11);
+        expected.add(4);
+        ArrayList<Object> actual = test.breadth_first_traversal();
+        assertEquals( "Should return elements based on their level",expected,actual);
+
+      }
 }
