@@ -14,7 +14,6 @@ public class BinaryTree<T>{
     this.arr = new ArrayList<>();
   }
 
-
   public ArrayList<Object> preOrder(){
     ArrayList<Object> result = new ArrayList<>();
     if(this.root == null) throw new NoSuchElementException();
@@ -100,5 +99,27 @@ public class BinaryTree<T>{
 
   public ArrayList<Object> getArr() {
     return arr;
+  }
+
+  public ArrayList<Object> breadth_first_traversal(){
+    breadth_first_traversal(root);
+    return arr;
+  }
+  public void breadth_first_traversal(Node node){
+    if(node == null)return;
+    Queue<Node> q = new Queue();
+    if(arr.size() < 1){
+      q.enqueue(node);
+    }
+    while(!q.isEmpty()){
+      Node front = q.dequeue();
+      arr.add(front.value);
+      if(front.left != null){
+        q.enqueue(front.left);
+      }
+      if(front.right != null){
+        q.enqueue(front.right);
+      }
+    }
   }
 }
