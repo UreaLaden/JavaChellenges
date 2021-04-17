@@ -224,3 +224,25 @@ left and right nodes respectively. Compare the current node with both variables 
 ## Solution
 
 ![Find Max](assets/treeMax.jpg)
+
+# Challenge Summary
+Conduct “FizzBuzz” on a k-ary tree while traversing through it to create a new tree.
+Set the values of each of the new nodes depending on the corresponding node value in the source
+tree.
+## Challenge Description
+Create a new tree with the same structure as the original, but the values modified as follows:
+
+- If the value is divisible by 3, replace the value with `“Fizz”`
+- If the value is divisible by 5, replace the value with `“Buzz”`
+- If the value is divisible by 3 and 5, replace the value with `“FizzBuzz”`
+- If the value is not divisible by 3 or 5, simply turn the number into a String.
+
+## Approach & Efficiency
+- Create function fbTransform that takes as in a FizzBuzz tree and a Node.
+- If the input node is not null perform the following actions otherwise return the input tree.
+- Declare three boolean variables: `isDivisibleByBoth`,`isDivisibleByThree` and `isDivisibleByFive`
+- Set the input nodes value based on the problem requirements
+- Using a for loop iterate the the input nodes children and perform fbTransform on each
+
+
+![FizzBuzz](assets/fizzbuzz2.jpg)
