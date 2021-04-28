@@ -246,3 +246,9 @@ Create a new tree with the same structure as the original, but the values modifi
 
 
 ![FizzBuzz](assets/fizzbuzz2.jpg)
+
+# Challenge Summary
+
+Step through the process of conducting a merge sort. Provide a visual step through for each of
+the sample arrays. Present a complete set of working tests
+
