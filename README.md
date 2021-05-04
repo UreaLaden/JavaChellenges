@@ -252,3 +252,16 @@ Create a new tree with the same structure as the original, but the values modifi
 Step through the process of conducting a merge sort. Provide a visual step through for each of
 the sample arrays. Present a complete set of working tests
 
+# Hashtables
+Implement a hashtable without using any built-in methods.
+
+## Challenge
+Implement a hashmap with the following methods: `add`, `get`, `contains`, and `hash`.
+
+## API
+- `add`: takes in both the key and value. This method should hash the key, and add the key and
+value pair to the table, handling collisions as needed.
+- `get`: takes in the key and returns the value from the table.
+- `contains`: takes in the key and returns a boolean, indicating if the key exists in the table
+  already.
+- `hash` : takes in an arbitrary key and returns an index in the collection.
