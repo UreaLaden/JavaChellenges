@@ -24,9 +24,7 @@ public class QuickSort {
         rightIdx--;
       }
     }
-
     swap(pivotIdx,rightIdx,array);
-
     boolean leftSubarrayIsSmaller = (rightIdx - 1) - startIdx < (rightIdx + 1);
     if(leftSubarrayIsSmaller){
       _quickSort(array,startIdx,rightIdx - 1);
