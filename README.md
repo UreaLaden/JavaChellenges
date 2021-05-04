@@ -264,4 +264,4 @@ Implement a hashmap with the following methods: `add`, `get`, `contains`, and `h
 - `get`: takes in the key and returns the value from the table.
 - `contains`: takes in the key and returns a boolean, indicating if the key exists in the table
   already.
-- `hash` : takes in an arbitrary key and returns an index in the collection.
+- `hash` : takes in an arbitrary key and returns an index in the collection. 
