@@ -265,3 +265,17 @@ Implement a hashmap with the following methods: `add`, `get`, `contains`, and `h
 - `contains`: takes in the key and returns a boolean, indicating if the key exists in the table
   already.
 - `hash` : takes in an arbitrary key and returns an index in the collection.
+
+# Challenge Summary
+Find common values in 2 binary trees.
+
+## Challenge Description
+Write a function called `tree_intersection` that takes two binary tree parameters.
+Without utilizing any of the built-in library methods available to your language, return a set
+of values found in both trees.
+
+## Approach & Efficiency
+Using the Binary Tree class that I previously defined, I recursively traversed both trees
+and added their Node values to ArrayLists. I then iterated through one of those Lists in order
+to compare its values with the other. All matches were then added to a HashSet to store the result.
+
