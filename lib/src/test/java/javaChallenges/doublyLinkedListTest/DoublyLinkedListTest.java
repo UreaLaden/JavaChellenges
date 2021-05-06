@@ -17,7 +17,7 @@ public class DoublyLinkedListTest {
     DoublyLinkedList test2 = new DoublyLinkedList();
     test2.insert(5);
     int expected2 = 5;
-    int actual2 = test2.head.value;
+    int actual2 = (int)test2.head.value;
     assertEquals("Should be able to insert a value: ", expected2,actual2);
   }
   @Test public void testPrev(){
@@ -32,8 +32,8 @@ public class DoublyLinkedListTest {
     int target = 4;
     int actual2b = -1;
     while(current != null){
-      if(current.value == target){
-        actual2b = current.prev.value;
+      if(current.value.equals(target)){
+        actual2b = (int)current.prev.value;
       }
       current = current.next;
     }

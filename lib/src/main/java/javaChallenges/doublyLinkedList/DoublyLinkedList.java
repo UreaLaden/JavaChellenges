@@ -18,7 +18,7 @@ public class DoublyLinkedList {
   public boolean includes(int value){
     Node current = this.head;
     while(current != null){
-      if(current.value == value){
+      if(current.value.equals(value)){
         return true;
       }
       current = current.next;

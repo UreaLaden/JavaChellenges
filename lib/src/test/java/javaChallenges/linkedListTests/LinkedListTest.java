@@ -25,7 +25,7 @@ public class LinkedListTest{
     test1.insert(9);
     test1.append(6);
     int expectedA2 = 6;
-    int actualB2 = test1.tail.value;
+    int actualB2 = (int)test1.tail.value;
     assertEquals("Should append a value to the end: ",expectedA2,actualB2);
     System.out.println(test1.toString());
     test1.insertBefore(8,7);
