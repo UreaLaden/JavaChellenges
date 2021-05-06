@@ -1,4 +1,5 @@
 package javaChallenges.linkedList;
+
 import javaChallenges.doublyLinkedList.Node;
 
 public class LinkedList{
@@ -9,7 +10,7 @@ public class LinkedList{
     this.head = null;
     this.tail = null;
   }
-  public void insert(int value){
+  public void insert(Object value){
     //takes any value as an argument and adds
     // a new node with the value to the head of the list wih an O(1) Time performance
     Node newNode = new Node(value);
@@ -22,7 +23,7 @@ public class LinkedList{
     //on whether that value exists as a Node's value somewhere within the list
     Node current = this.head;
     while(current != null){
-      if(current.value == value)
+      if(current.value.equals(value))
       {
         return true;
       }
@@ -39,7 +40,7 @@ public class LinkedList{
 //    small bit of work : node of not null : check for match: return true
 //    recursion : call the function on current.next, value
     if(current == null)return false;
-    if(current.value == targetValue)return true;
+    if(current.value.equals(targetValue))return true;
     return includesRecursive(current.next,targetValue);
   }
 
@@ -50,9 +51,10 @@ public class LinkedList{
   }
 
   public String _toString(Node currentNode){
-    if(currentNode == null)return "NULL";
+    if(currentNode == null)return null;
     return "{" + currentNode.value + "} -> " + this._toString(currentNode.next);
   }
+
 
   public int countNodes(){
     //count all the nodes of a linked list
@@ -65,7 +67,7 @@ public class LinkedList{
     return count;
   }
 
-  public void append(int value){
+  public void append(Object value){
     Node newNode = new Node(value);
     this.tail.next = newNode;
     this.tail = newNode;
@@ -73,10 +75,10 @@ public class LinkedList{
   public void insertBefore(int value, int newVal){
     Node newNode = new Node(newVal);
     Node current = this.head;
-    boolean isHeadOrTail = this.tail.value == value || current.value == value;
+    boolean isHeadOrTail = this.tail.value.equals(value) || current.value.equals(value);
     if(!isHeadOrTail ){
       while(current.next != null){
-        if(current.next.value == value){
+        if(current.next.value.equals(value)){
           newNode.next = current.next;
           current.next = newNode;
           return;
@@ -85,7 +87,7 @@ public class LinkedList{
       }
     }
     else{
-      if(this.tail.value == value)
+      if(this.tail.value.equals(value))
       {
         newNode.next = this.tail;
         this.tail.prev.next = newNode;
@@ -97,14 +99,14 @@ public class LinkedList{
   }
   public void insertAfter(int value, int newVal){
     Node newNode = new Node(newVal);
-    boolean isTail = this.tail.value == value;
+    boolean isTail = this.tail.value.equals(value);
     if(isTail){
       append(newVal);
     }
     else{
       Node current = this.head;
       while(current.next != null){
-        if(current.value == value){
+        if(current.value.equals(value)){
           Node temp = current.next;
           current.next = newNode;
           newNode.next = temp;
@@ -116,8 +118,8 @@ public class LinkedList{
   }
 
   public void delete(int value){
-    boolean isHead = this.head.value == value;
-    boolean isTail = this.tail.value == value;
+    boolean isHead = this.head.value.equals(value);
+    boolean isTail = this.tail.value.equals(value);
     if(isHead){
       Node temp = this.head.next;
       this.head.next = null;
@@ -130,7 +132,7 @@ public class LinkedList{
     }
     Node current = this.head;
     while(current.next != null){
-      if(current.next.value == value){
+      if(current.next.value.equals(value)){
         Node temp = current.next;
         current.next = null;
         current.next = temp.next;
@@ -144,7 +146,7 @@ public class LinkedList{
     Node current = this.head;
     int currentIdx = 0;
     int maxIndex = this.countNodes()-1;
-    if(maxIndex == index){return current.value;}
+    if(maxIndex == index){return (int)current.value;}
     int target;
     try{
       boolean indexInRange = index < this.countNodes() && index >= 0;
@@ -158,7 +160,7 @@ public class LinkedList{
     while(current.next != null ){
       target = (this.countNodes()-1) - currentIdx;
       if(target == index){
-        return current.value;
+        return (int)current.value;
       }
       currentIdx++;
       current = current.next;

@@ -14,6 +14,7 @@ public class TreeIntersectionTest {
   public void testFindIntersection(){
     BinaryTree a = new BinaryTree();
     BinaryTree b = new BinaryTree();
+
     a.root = new Node(null,null,150);
     a.root.left = new Node(null,null,100);
     a.root.left.left = new Node(null,null,75);
