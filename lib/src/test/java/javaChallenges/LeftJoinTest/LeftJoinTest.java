@@ -38,6 +38,7 @@ public class LeftJoinTest {
       actual.add(value.toArray());
     }
     System.out.println("resultList = " + actual);
+    System.out.println("actual = " + actual.get(0));
     assertEquals("Should return [diligent,employed,idle]",expected,actual.get(0));
   }
 }
