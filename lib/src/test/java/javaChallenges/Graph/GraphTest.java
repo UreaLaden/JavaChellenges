@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
 
 public class GraphTest {
@@ -93,6 +94,43 @@ public class GraphTest {
     int expectedSize = 4;
     int actualSize = graph.Size();
     assertEquals("Size should be 4",expectedSize,actualSize);
+  }
 
+  @Test
+  public void testTraverse(){
+    Graph graph = new Graph();
+    graph.AddVertex("Pandora");
+    graph.AddVertex("Arendelle");
+    graph.AddVertex("Metroville");
+    graph.AddVertex("Monstropolis");
+    graph.AddVertex("Naboo");
+    graph.AddVertex("Narnia");
+
+    graph.AddEdge("Pandora","Arendelle",3);
+    graph.AddEdge("Arendelle","Pandora",3);
+
+    graph.AddEdge("Arendelle","Metroville",3);
+    graph.AddEdge("Metroville","Arendelle",3);
+
+    graph.AddEdge("Arendelle","Monstropolis",3);
+    graph.AddEdge("Monstropolis","Arendelle",3);
+
+    graph.AddEdge("Metroville","Monstropolis",3);
+    graph.AddEdge("Monstropolis","Metroville",3);
+
+    graph.AddEdge("Metroville","Narnia",3);
+    graph.AddEdge("Narnia","Metroville",3);
+
+    graph.AddEdge("Monstropolis","Naboo",3);
+    graph.AddEdge("Naboo","Monstropolis",3);
+
+    graph.AddEdge("Naboo","Narnia",3);
+    graph.AddEdge("Narnia","Naboo",3);
+
+    ArrayList<Object> expected = new ArrayList<>(asList("Pandora","Arendelle","Metroville",
+      "Monstropolis","Narnia","Naboo"));
+    ArrayList<Object> actual = graph.Traverse("Pandora");
+    assertEquals("Should traverse the graph from Pandora to Naboo - [Pandora, Arendelle, " +
+      "Metroville, Monstropolis, Narnia, Naboo]",expected,actual);
   }
 }
