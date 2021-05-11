@@ -1,5 +1,7 @@
 package javaChallenges.graph;
 
+import javaChallenges.stacksandqueues.Queue;
+
 import java.util.ArrayList;
 
 public class Graph {
@@ -54,6 +56,41 @@ public class Graph {
     }
     return neighbors;
   }
+  public ArrayList<Object> GetNeighborsNames(Object vertex){
+    int index = this.vertexes.indexOf(vertex);
+    ArrayList<Object> neighbors = new ArrayList<>();
+    ArrayList<Object> targetMatrix = adjacencyMatrix.get(index);
+    for(Object neighbor: this.vertexes){
+      int neighborIndex = vertexes.indexOf(neighbor);
+      int neighborIdxInCurrArray = (int)targetMatrix.get(neighborIndex);
+      if(neighbor != vertex && neighborIdxInCurrArray != 0){
+        neighbors.add(neighbor);
+      }
+    }
+    return neighbors;
+  }
+
+  public ArrayList<Object> Traverse(Object startingVertex){
+    Queue q = new Queue();
+    Object current = startingVertex;
+    ArrayList<Object> traversedVertexes = new ArrayList<>();
+    q.enqueue(current);
+    while(!q.isEmpty()){
+
+      for(Object neighbor : this.GetNeighborsNames(current)){
+        if(!traversedVertexes.contains(neighbor)){
+          q.enqueue(neighbor);
+        }
+      }
+      current = q.dequeue();
+      if(!traversedVertexes.contains(current)){
+        traversedVertexes.add(current);
+      }
+    }
+    return traversedVertexes;
+  }
+
+
   @Override
   public String toString() {
     StringBuilder aMatrix = new StringBuilder();
